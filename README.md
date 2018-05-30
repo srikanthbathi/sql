@@ -7,3 +7,5 @@ UNION merges the contents of two structurally-compatible tables into a single co
 It is important to note that the performance of UNION ALL will typically be better than UNION, since UNION requires the server to do the additional work of removing any duplicates. So, in cases where is is certain that there will not be any duplicates, or where having duplicates is not a problem, use of UNION ALL would be recommended for performance reasons.
 
 https://www.toptal.com/sql/interview-questions
+
+http://www.tech-recipes.com/rx/57894/sql-server-three-valued-logic-not-clause-null-values/
