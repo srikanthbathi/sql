@@ -10,5 +10,7 @@ https://www.toptal.com/sql/interview-questions
 
 http://www.tech-recipes.com/rx/57894/sql-server-three-valued-logic-not-clause-null-values/
 
+https://www.softwaretestinghelp.com/50-popular-sql-interview-questions-for-testers/
+
 
 https://www.edureka.co/blog/interview-questions/sql-interview-questions
