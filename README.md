@@ -17,3 +17,5 @@ https://www.edureka.co/blog/interview-questions/sql-interview-questions
 
 
 https://www.geeksforgeeks.org/sql-general-functions-nvl-nvl2-decode-coalesce-nullif-lnnvl-nanvl/
+
+https://www.geeksforgeeks.org/sql-interview-questions-set-2/
