@@ -14,3 +14,6 @@ https://www.softwaretestinghelp.com/50-popular-sql-interview-questions-for-teste
 
 
 https://www.edureka.co/blog/interview-questions/sql-interview-questions
+
+
+https://www.geeksforgeeks.org/sql-general-functions-nvl-nvl2-decode-coalesce-nullif-lnnvl-nanvl/
