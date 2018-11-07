@@ -15,6 +15,8 @@ Index Scan
 If your table has a clustered index and you are firing a query which needs all or most of the rows i.e. query without WHERE or HAVING clause, then it uses an index scan. It works similar to the table scan, during the query optimization process, the query optimizer takes a look at the available index and chooses the best one, based on information provided in your joins and where clause, along with the statistical information database keeps.
 
 Once the right index is chosen, SQL Query processor or engine navigates the tree structure to the point of data that matches your criteria and again extract only the records it needs. See SQL Performance Explained by Markus Winand to learn more about how indexes work in different databases.
+
+https://www.youtube.com/watch?v=o1dMJ6-CKzU
 '
 
 **nested-loop join, merge join, and hash join**
