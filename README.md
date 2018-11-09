@@ -16,6 +16,9 @@ If your table has a clustered index and you are firing a query which needs all o
 
 Once the right index is chosen, SQL Query processor or engine navigates the tree structure to the point of data that matches your criteria and again extract only the records it needs. See SQL Performance Explained by Markus Winand to learn more about how indexes work in different databases.
 
+CTE -- 
+MongoDb rec -- > https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/
+
 https://www.youtube.com/watch?v=o1dMJ6-CKzU
 
 https://use-the-index-luke.com/sql/where-clause/the-equals-operator/concatenated-keys
