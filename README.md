@@ -56,6 +56,18 @@ DELETE FROM Employees WHERE EmployeeID IN (SELECT * FROM (SELECT s.EmployeeID FR
 SET @ID = 4;
 WITH RECURSIVE EmplyeeCTE AS (SELECT * FROM Employees WHERE EmployeeID = @ID UNION ALL SELECT s.* FROM Employees s JOIN EmployeeCTE e ON e.ManagerID = s.EmployeeID) SELECT * FROM EmployeeCTE;
 
+**MONGO DB** db.Employees.aggregate([{$match:{"name":"Ron"}},{
+    $graphLookup:{
+        from:"Employees",
+        startWith:"$reportsTo",
+        connectFromField:"reportsTo",
+        connectToField:"name",
+        as:"reportingHierarchy"
+        }
+    },{$project:{"name":1,"reportingHierarchy":"$reportingHierarchy.name"
+        }}
+    ])
+
 **Level Of Employee** -- 
 WITH RECURSIVE EmployeeCTE AS (SELECT EmployeeID,EmployeeName,1 AS level,ManagerID FROM Employees WHERE ManagerID IS NULL UNION ALL SELECT s.EmployeeID,s.EmployeeName,e.level+1,s.ManagerID AS level FROM EmployeeCTE e JOIN Employees s ON e.EmployeeID = s.ManagerID) SELECT * FROM EmployeeCTE;
 
