@@ -47,3 +47,14 @@ https://www.edureka.co/blog/interview-questions/sql-interview-questions
 https://www.geeksforgeeks.org/sql-general-functions-nvl-nvl2-decode-coalesce-nullif-lnnvl-nanvl/
 
 https://www.geeksforgeeks.org/sql-interview-questions-set-2/
+
+
+**Delete Duplicate Rows** -- Employees(EmployeeID,EmployeeName,ManagerID) :
+DELETE FROM Employees WHERE EmployeeID IN (SELECT * FROM (SELECT s.EmployeeID FROM Employees s JOIN (SELECT MIN(EmployeeID) as EmployeeID,EmployeeName,ManagerID FROM Employees GROUP BY EmployeeName,ManagerID HAVING COUNT(EmployeeId)>1) AS e ON s.EmployeeID != e.EmployeeID AND e.EmployeeName = s.EmployeeName AND e.ManagerID = s.ManagerID) AS ali);
+
+**Org Hierarchy** -- Use Recursive CTE: 
+SET @ID = 4;
+WITH RECURSIVE EmplyeeCTE AS (SELECT * FROM Employees WHERE EmployeeID = @ID UNION ALL SELECT s.* FROM Employees s JOIN EmployeeCTE e ON e.ManagerID = s.EmployeeID) SELECT * FROM EmployeeCTE;
+
+
+
