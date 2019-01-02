@@ -71,6 +71,34 @@ WITH RECURSIVE EmplyeeCTE AS (SELECT * FROM Employees WHERE EmployeeID = @ID UNI
 **Level Of Employee** -- 
 WITH RECURSIVE EmployeeCTE AS (SELECT EmployeeID,EmployeeName,1 AS level,ManagerID FROM Employees WHERE ManagerID IS NULL UNION ALL SELECT s.EmployeeID,s.EmployeeName,e.level+1,s.ManagerID AS level FROM EmployeeCTE e JOIN Employees s ON e.EmployeeID = s.ManagerID) SELECT * FROM EmployeeCTE;
 
+**IMPORTANT FOR UPDATE TABLES** 
+
+https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-table-for-update-in-from-clause
+https://mariadb.com/kb/en/library/derived-table-merge-optimization/
+https://mariadb.com/kb/en/library/why-is-order-by-in-a-from-subquery-ignored/
+https://www.xaprb.com/blog/2006/06/23/how-to-select-from-an-update-target-in-mysql/
+If you do this:
+
+DELETE FROM story_category
+WHERE category_id NOT IN (
+        SELECT DISTINCT category.id AS cid FROM category 
+        INNER JOIN story_category ON category_id=category.id
+)
+you are going to get an error.
+
+But if you wrap the condition in one more select:
+
+DELETE FROM story_category
+WHERE category_id NOT IN (
+    SELECT cid FROM (
+        SELECT DISTINCT category.id AS cid FROM category 
+        INNER JOIN story_category ON category_id=category.id
+    ) AS c
+)
+it would do the right thing!!
+
+Explanation: The query optimizer does a derived merge optimization for the first query (which causes it to fail with the error), but the second query doesn't qualify for the derived merge optimization. Hence the optimizer is forced to execute the subquery first.
+
 
 
 
