@@ -77,6 +77,7 @@ https://stackoverflow.com/questions/45494/mysql-error-1093-cant-specify-target-t
 https://mariadb.com/kb/en/library/derived-table-merge-optimization/
 https://mariadb.com/kb/en/library/why-is-order-by-in-a-from-subquery-ignored/
 https://www.xaprb.com/blog/2006/06/23/how-to-select-from-an-update-target-in-mysql/
+http://www.mysqltutorial.org/mysql-window-functions/mysql-rank-function/
 If you do this:
 
 DELETE FROM story_category
