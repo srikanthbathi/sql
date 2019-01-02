@@ -100,5 +100,9 @@ it would do the right thing!!
 Explanation: The query optimizer does a derived merge optimization for the first query (which causes it to fail with the error), but the second query doesn't qualify for the derived merge optimization. Hence the optimizer is forced to execute the subquery first.
 
 
+**NthHighest ManagerID**
+select ManagerID  From Employees e1 WHERE 6 = (SELECT count(*) FROM (SELECT DISTINCT ManagerID FROM Employees WHERE ManagerID IS NOT NULL) AS al WHERE e1.ManagerID>=al.ManagerID);
+
+
 
 
