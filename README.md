@@ -52,6 +52,8 @@ https://www.geeksforgeeks.org/sql-interview-questions-set-2/
 **Delete Duplicate Rows** -- Employees(EmployeeID,EmployeeName,ManagerID) :
 DELETE FROM Employees WHERE EmployeeID IN (SELECT * FROM (SELECT s.EmployeeID FROM Employees s JOIN (SELECT MIN(EmployeeID) as EmployeeID,EmployeeName,ManagerID FROM Employees GROUP BY EmployeeName,ManagerID HAVING COUNT(EmployeeId)>1) AS e ON s.EmployeeID != e.EmployeeID AND e.EmployeeName = s.EmployeeName AND e.ManagerID = s.ManagerID) AS ali);
 
+Delete FROM Employees WHERE EmployeeID IN (Select EmployeeID from (SELECT EmployeeID, ROW_NUMBER() OVER(PARTITION BY EmployeeName,ManagerID) as RowNumber FROM Employees ORDER BY EmployeeID ASC) AS temp where RowNumber >1);
+
 **Org Hierarchy** -- Use Recursive CTE: 
 SET @ID = 4;
 WITH RECURSIVE EmplyeeCTE AS (SELECT * FROM Employees WHERE EmployeeID = @ID UNION ALL SELECT s.* FROM Employees s JOIN EmployeeCTE e ON e.ManagerID = s.EmployeeID) SELECT * FROM EmployeeCTE;
