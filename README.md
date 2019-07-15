@@ -1,5 +1,10 @@
 # sql
 
+
+https://www.geeksforgeeks.org/mapping-from-er-model-to-relational-model/
+https://www.geeksforgeeks.org/dbms-attributes-to-relationships-in-er-model/
+
+
 **UNION vs UNION ALL**
 
 UNION merges the contents of two structurally-compatible tables into a single combined table. The difference between UNION and UNION ALL is that UNION will omit duplicate records whereas UNION ALL will include duplicate records.
