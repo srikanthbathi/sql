@@ -3,6 +3,7 @@
 
 https://www.geeksforgeeks.org/mapping-from-er-model-to-relational-model/
 https://www.geeksforgeeks.org/dbms-attributes-to-relationships-in-er-model/
+https://www.mssqltips.com/sqlservertip/1254/sql-server-clustered-tables-vs-heap-tables/
 
 
 **UNION vs UNION ALL**
